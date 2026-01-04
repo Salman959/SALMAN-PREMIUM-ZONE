@@ -1,0 +1,391 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en" translate="no" class="notranslate">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- ভাষা পরিবর্তন রোধ করার জন্য গুরুত্বপূর্ণ ট্যাগ -->
+    <meta name="google" content="notranslate">
+    <meta http-equiv="Content-Language" content="en">
+    
+    <title>SALMAN PREMIUM ZONE</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --card-bg: #fdfdfd;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --accent-primary: #2563eb;
+            --accent-gradient: linear-gradient(135deg, #2563eb, #0ea5e9);
+            --border-color: #f3f4f6;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        /* Header & Logo */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--accent-gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+        }
+
+        .logo-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+
+        /* Search Bar */
+        .search-wrapper {
+            position: relative;
+            flex: 1;
+            max-width: 450px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 20px 12px 45px;
+            border-radius: 50px;
+            border: 1px solid #e5e7eb;
+            background: #f9fafb;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            background: #ffffff;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+
+        .search-icon-svg {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            pointer-events: none;
+        }
+
+        /* Categories */
+        .categories-bar {
+            display: flex;
+            gap: 10px;
+            padding: 20px 0;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .categories-bar::-webkit-scrollbar { display: none; }
+
+        .cat-btn {
+            padding: 8px 20px;
+            border-radius: 50px;
+            background: #f3f4f6;
+            border: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .cat-btn.active {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        /* Grid */
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px 0 60px;
+        }
+
+        .app-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: #d1d5db;
+        }
+
+        .app-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .app-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--text-primary);
+        }
+
+        .app-category-label {
+            font-size: 0.8rem;
+            color: var(--accent-primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            background: rgba(37, 99, 235, 0.05);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        .app-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .dl-btn {
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            background: var(--text-primary);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+
+        .dl-btn:hover {
+            background: var(--accent-primary);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: auto;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            background: #ffffff;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        footer b {
+            color: var(--accent-primary);
+        }
+
+        /* Loading */
+        .loader {
+            grid-column: 1/-1;
+            text-align: center;
+            padding: 50px;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .navbar { flex-direction: column; align-items: flex-start; }
+            .search-wrapper { width: 100%; max-width: 100%; }
+            .app-grid { grid-template-columns: 1fr 1fr; gap: 15px; }
+            .app-card { padding: 15px; }
+            .app-img { width: 70px; height: 70px; }
+            .app-title { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <a href="#" class="logo-box">
+                    <div class="logo-icon"><i data-lucide="shield-check"></i></div>
+                    <div class="logo-name">SALMAN PREMIUM ZONE</div>
+                </a>
+                
+                <div class="search-wrapper">
+                    <i data-lucide="search" class="search-icon-svg" size="18"></i>
+                    <input type="text" id="appSearch" class="search-input" placeholder="Search apps or games...">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="categories-bar" id="catBar">
+            <button class="cat-btn active" onclick="filterCat('All')">All</button>
+            <button class="cat-btn" onclick="filterCat('Games')">Games</button>
+            <button class="cat-btn" onclick="filterCat('Tools')">Tools</button>
+            <button class="cat-btn" onclick="filterCat('Editor')">Editor</button>
+            <button class="cat-btn" onclick="filterCat('Utilities')">Utilities</button>
+        </div>
+
+        <main id="app-grid" class="app-grid">
+            <!-- Apps will load here -->
+            <div class="loader">Loading applications...</div>
+        </main>
+    </div>
+
+    <footer>
+        <p>© 2025, Made With Developer By <b>SALMAN BD</b>.</p>
+    </footer>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+
+    <script>
+        lucide.createIcons();
+
+        // Firebase Config
+        const firebaseConfig = {
+  apiKey: "AIzaSyBkeht6Ldd4lWgiG9UrOmoKSESzb4T6Wko",
+  authDomain: "salman-premium-zone.firebaseapp.com",
+  databaseURL: "https://salman-premium-zone-default-rtdb.firebaseio.com",
+  projectId: "salman-premium-zone",
+  storageBucket: "salman-premium-zone.firebasestorage.app",
+  messagingSenderId: "560030891520",
+  appId: "1:560030891520:web:64fe1a443a1092bd06e2e5",
+  measurementId: "G-XJ2CHHDXYN"
+};
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        let allApps = [];
+        let currentFilter = 'All';
+
+        // Load Apps
+        async function fetchApps() {
+            db.collection("apps").orderBy("createdAt", "desc").onSnapshot(snapshot => {
+                allApps = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                renderApps();
+            });
+        }
+
+        function renderApps() {
+            const grid = document.getElementById('app-grid');
+            const searchTerm = document.getElementById('appSearch').value.toLowerCase();
+            
+            let filtered = allApps.filter(app => {
+                const matchesSearch = app.name.toLowerCase().includes(searchTerm);
+                const matchesCat = currentFilter === 'All' || app.category === currentFilter;
+                return matchesSearch && matchesCat;
+            });
+
+            if(filtered.length === 0) {
+                grid.innerHTML = `<div class="loader">No apps found matching your search.</div>`;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(app => `
+                <div class="app-card">
+                    <img src="${app.icon || 'https://via.placeholder.com/100'}" class="app-img" alt="${app.name}">
+                    <div class="app-category-label">${app.category || 'App'}</div>
+                    <h3 class="app-title">${app.name}</h3>
+                    <p class="app-desc">${app.description || 'No description provided.'}</p>
+                    <a href="${app.link}" target="_blank" class="dl-btn">
+                        <i data-lucide="download" size="18"></i> Download
+                    </a>
+                </div>
+            `).join('');
+            
+            lucide.createIcons();
+        }
+
+        // Search Input Event
+        document.getElementById('appSearch').addEventListener('input', renderApps);
+
+        // Category Filter
+        window.filterCat = (cat) => {
+            currentFilter = cat;
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.innerText === cat) btn.classList.add('active');
+            });
+            renderApps();
+        };
+
+        fetchApps();
+    </script>
+</body>
+</html>
